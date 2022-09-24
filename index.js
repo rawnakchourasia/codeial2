@@ -3,6 +3,14 @@ const app = express();
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
 
+// for using JS, CSS and Image files
+app.use(express.static("./assets"));
+
+// extract styles and scripts from sub pages into the layout
+app.set("layout extractStyles", true);
+app.set("layout extractScripts", true);
+
+// using ExpressEjsLayouts
 app.use(expressLayouts);
 
 // use express router
