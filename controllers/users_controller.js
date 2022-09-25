@@ -47,10 +47,10 @@ module.exports.create = function (req, res) {
           return;
         }
 
-        return res.redirect("sign-in");
+        return res.redirect("../users/sign-in");
       });
     } else {
-      res.redirect("back");
+      return res.redirect("back");
     }
   });
 };
