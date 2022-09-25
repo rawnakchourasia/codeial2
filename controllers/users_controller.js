@@ -96,3 +96,11 @@ module.exports.createSession = function (req, res) {
     }
   });
 };
+
+// sign out and end the session for the user
+module.exports.endSession = function (req, res) {
+  if (req.cookies.user_id) {
+    res.cookie("user_id", "");
+    return res.redirect("back");
+  }
+};
