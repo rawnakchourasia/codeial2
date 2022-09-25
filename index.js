@@ -1,8 +1,15 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const app = express();
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
+
+//for sending POST requests from FORMS
+app.use(express.urlencoded());
+
+// for cookies
+app.use(cookieParser());
 
 // for using JS, CSS and Image files
 app.use(express.static("./assets"));
