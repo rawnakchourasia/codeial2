@@ -1,3 +1,5 @@
+const User = require("../models/user");
+
 module.exports.profile = function (req, res) {
   //   res.end("<h1>User Profile</h1>");
   res.render("users", {
@@ -23,7 +25,34 @@ module.exports.signUp = function (req, res) {
 
 // get the sign Up data
 module.exports.create = function (req, res) {
-  //TODO Later
+  // console.log(req.body);
+  if (req.body.password != req.body.confirm_password) {
+    return res.redirect("back");
+  }
+
+  // This checks for that user in the DB
+  User.findOne({ email: req.body.email }, function (err, user) {
+    if (err) {
+      console.log(`Error in creating user ${req.body.name} while signing up`);
+      return;
+    }
+
+    // If that user is not found in the DB then proceed with creating that user in DB
+    if (!user) {
+      User.create(req.body, function (err, user) {
+        if (err) {
+          console.log(
+            `Error in creating user ${req.body.name} while signing up`
+          );
+          return;
+        }
+
+        return res.redirect("sign-in");
+      });
+    } else {
+      res.redirect("back");
+    }
+  });
 };
 
 // sign in and create a session for the user
