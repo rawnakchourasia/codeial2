@@ -54,6 +54,7 @@ module.exports.create = function (req, res) {
     // If that user is not found in the DB then proceed with creating that user in DB
     if (!user) {
       User.create(req.body, function (err, user) {
+        // In above 'user' is the document inside which fields exists in db
         if (err) {
           console.log(
             `Error in creating user ${req.body.name} while signing up`
