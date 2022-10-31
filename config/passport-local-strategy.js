@@ -8,7 +8,7 @@ const User = require("../models/user");
 passport.use(
   new LocalStrategy(
     {
-      usernameField: email,
+      usernameField: "email",
     },
 
     function (email, password, done) {
@@ -36,7 +36,7 @@ passport.use(
 // Serializing the user to decide which key is to be kept in the Cookies
 passport.serializeUser(function (user, done) {
   // We pass the id of user to be stored in cookie
-  done(none, user.id);
+  done(null, user.id);
 });
 
 // De-Serializing the user from the key in the Cookies
