@@ -1,0 +1,31 @@
+#headerHere {
+  height: 70px;
+  background: #0680fd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px; }
+  #headerHere #appName {
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: white; }
+  #headerHere #rightHeaderContent {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-decoration: none; }
+    #headerHere #rightHeaderContent a {
+      text-decoration: none; }
+    #headerHere #rightHeaderContent #profileName a {
+      color: white; }
+    #headerHere #rightHeaderContent #signOutButton a {
+      color: yellow; }
+    #headerHere #rightHeaderContent #signInButton a {
+      color: yellow; }
+    #headerHere #rightHeaderContent #signUpButton a {
+      color: yellow; }

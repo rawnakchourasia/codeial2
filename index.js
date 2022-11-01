@@ -17,8 +17,8 @@ const sassMidlleware = require("node-sass-middleware");
 // Use sass Middleware before the server starts
 app.use(
   sassMidlleware({
-    src: "/assets/scss",
-    dest: "/assets/css",
+    src: "./assets/scss",
+    dest: "./assets/css",
     debug: true,
     outputStyle: "extended",
     prefix: "/css",
