@@ -11,6 +11,20 @@ const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require("connect-mongo");
 
+// SASS Middleware
+const sassMidlleware = require("node-sass-middleware");
+
+// Use sass Middleware before the server starts
+app.use(
+  sassMidlleware({
+    src: "/assets/scss",
+    dest: "/assets/css",
+    debug: true,
+    outputStyle: "extended",
+    prefix: "/css",
+  })
+);
+
 // for sending POST requests from FORMS
 app.use(express.urlencoded());
 
