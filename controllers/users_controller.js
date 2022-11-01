@@ -2,7 +2,7 @@ const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
   //   res.end("<h1>User Profile</h1>");
-  res.render("users", {
+  res.render("user_profile", {
     title: "profile",
   });
 };
@@ -12,12 +12,20 @@ module.exports.profilePic = function (req, res) {
 };
 
 module.exports.signIn = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
+
   res.render("user_sign_in", {
     title: "Sign In",
   });
 };
 
 module.exports.signUp = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
+
   res.render("user_sign_up", {
     title: "Sign Up",
   });
