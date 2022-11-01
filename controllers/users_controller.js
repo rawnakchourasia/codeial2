@@ -67,3 +67,14 @@ module.exports.create = function (req, res) {
 module.exports.createSession = function (req, res) {
   return res.redirect("/");
 };
+
+// sign out user
+module.exports.destroySession = function (req, res) {
+  req.logout(function (err, user) {
+    if (err) {
+      console.log(`Error in signing out user - ${req.body.name} `);
+      return;
+    }
+  });
+  return res.redirect("/");
+};
