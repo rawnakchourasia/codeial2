@@ -10,6 +10,17 @@ module.exports.profile = function (req, res) {
   //   res.end("<h1>User Profile</h1>");
 };
 
+module.exports.update = function (req, res) {
+  console.log(req.user.id, req.params);
+  if (req.user.id == req.params.id) {
+    User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+      return res.redirect("back");
+    });
+  } else {
+    return res.status(401).send("Unauthorized");
+  }
+};
+
 module.exports.profilePic = function (req, res) {
   res.end("<h1>User Profile Pic!</h1>");
 };
