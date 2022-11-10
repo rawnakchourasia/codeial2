@@ -5,7 +5,12 @@ const passport = require("passport");
 
 const usersController = require("../controllers/users_controller");
 
-router.get("/profile", passport.checkAuthentication, usersController.profile);
+router.get(
+  // "/profile",
+  "/profile/:id",
+  passport.checkAuthentication,
+  usersController.profile
+);
 router.get("/profilepic", usersController.profilePic);
 
 router.get("/sign-in", usersController.signIn);
